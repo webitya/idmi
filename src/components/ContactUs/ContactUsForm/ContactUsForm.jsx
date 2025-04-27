@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import { motion } from "framer-motion";
 import { Send } from "@mui/icons-material";
 import { Button, TextField, Typography, Grid, CircularProgress, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
@@ -18,25 +18,31 @@ const ContactUsForm = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [modalContent, setModalContent] = useState({ title: "", message: "", error: false });
 
-  const handleChange = (e) => {
+  const handleChange = useCallback((e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-  };
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Simple client-side validation
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setIsSubmitting(false);
+      setModalContent({
+        title: "Validation Error",
+        message: "Please fill in all required fields.",
+        error: true,
+      });
+      setModalOpen(true);
+      return;
+    }
+
     try {
       await emailjs.send("SERVICE_1234", "template_1234", formData, "abcdokokytr");
       setIsSubmitting(false);
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
       setModalContent({
         title: "Message Sent!",
         message: "We'll get back to you as soon as possible.",
@@ -73,7 +79,7 @@ const ContactUsForm = () => {
           marginTop: "2rem",
         }}
       >
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} noValidate>
           <Typography variant="h4" style={{ fontWeight: "bold", marginBottom: "1.5rem", color: "#333" }}>
             Send Us a Message
           </Typography>
@@ -88,6 +94,7 @@ const ContactUsForm = () => {
                 value={formData.name}
                 onChange={handleChange}
                 InputLabelProps={{ style: { color: "#555" } }}
+                variant="outlined"
               />
             </Grid>
 
@@ -101,6 +108,7 @@ const ContactUsForm = () => {
                 value={formData.email}
                 onChange={handleChange}
                 InputLabelProps={{ style: { color: "#555" } }}
+                variant="outlined"
               />
             </Grid>
 
@@ -112,6 +120,7 @@ const ContactUsForm = () => {
                 value={formData.phone}
                 onChange={handleChange}
                 InputLabelProps={{ style: { color: "#555" } }}
+                variant="outlined"
               />
             </Grid>
 
@@ -124,6 +133,7 @@ const ContactUsForm = () => {
                 value={formData.subject}
                 onChange={handleChange}
                 InputLabelProps={{ style: { color: "#555" } }}
+                variant="outlined"
               />
             </Grid>
 
@@ -138,6 +148,7 @@ const ContactUsForm = () => {
                 value={formData.message}
                 onChange={handleChange}
                 InputLabelProps={{ style: { color: "#555" } }}
+                variant="outlined"
               />
             </Grid>
 

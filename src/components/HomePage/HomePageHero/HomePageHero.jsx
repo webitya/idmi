@@ -1,12 +1,12 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import Link from "next/link"
-import { ArrowForward, CheckCircle } from "@mui/icons-material"
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { ArrowForward, CheckCircle } from "@mui/icons-material";
 
 const HomePageHero = () => {
   return (
-    <section className="relative mt-24 p-5 flex items-center overflow-hidden bg-[#333333]">
+    <section className="relative mt-24 p-5 flex items-center overflow-hidden bg-gradient-to-r from-[#2B3A42] to-[#1A252E]">
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -20,14 +20,14 @@ const HomePageHero = () => {
       <div className="absolute inset-0 bg-black/50 z-0"></div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl">
           {/* Badge */}
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="inline-block bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white px-5 py-2 rounded-full text-sm font-semibold mb-5"
+            transition={{ duration: 0.6 }}
+            className="inline-block bg-gradient-to-r from-yellow-500 via-yellow-600 to-yellow-700 text-white px-6 py-3 rounded-full text-sm font-semibold mb-6"
           >
             Premium Interior Design & Construction Services
           </motion.span>
@@ -37,7 +37,7 @@ const HomePageHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-4 leading-tight"
+            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
           >
             Transform Your Space With <br /> <span className="text-yellow-400">IDMITS DESIGNS</span>
           </motion.h1>
@@ -47,7 +47,7 @@ const HomePageHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl text-gray-300 mb-8"
+            className="text-lg md:text-xl text-gray-300 mb-8"
           >
             From concept to completion, we bring your vision to life with precision and passion. Our expert team
             delivers exceptional design and construction services in Gurgaon and across Haryana.
@@ -57,20 +57,20 @@ const HomePageHero = () => {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="flex flex-wrap gap-6 mb-10"
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="flex flex-wrap gap-8 mb-12"
           >
-            <div className="flex items-center">
-              <CheckCircle className="text-yellow-400 mr-2" />
-              <span className="text-gray-200">15+ Years Experience</span>
+            <div className="flex items-center text-gray-200">
+              <CheckCircle className="text-yellow-400 mr-3" />
+              <span>15+ Years Experience</span>
             </div>
-            <div className="flex items-center">
-              <CheckCircle className="text-yellow-400 mr-2" />
-              <span className="text-gray-200">Award-Winning Designs</span>
+            <div className="flex items-center text-gray-200">
+              <CheckCircle className="text-yellow-400 mr-3" />
+              <span>Award-Winning Designs</span>
             </div>
-            <div className="flex items-center">
-              <CheckCircle className="text-yellow-400 mr-2" />
-              <span className="text-gray-200">100% Client Satisfaction</span>
+            <div className="flex items-center text-gray-200">
+              <CheckCircle className="text-yellow-400 mr-3" />
+              <span>100% Client Satisfaction</span>
             </div>
           </motion.div>
 
@@ -79,17 +79,17 @@ const HomePageHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-5"
+            className="flex flex-col sm:flex-row gap-6"
           >
             <Link
               href="/services"
-              className="bg-[#2B6CB0] hover:bg-[#1E4E8C] text-white px-8 py-3 rounded-md text-lg font-bold shadow-lg transition"
+              className="bg-[#2B6CB0] hover:bg-[#1E4E8C] text-white px-10 py-4 rounded-md text-lg font-semibold shadow-xl transition duration-300 ease-in-out"
             >
               Our Services
             </Link>
             <Link
               href="/contactus"
-              className="bg-white hover:bg-gray-100 text-gray-900 px-8 py-3 rounded-md text-lg font-bold shadow-lg transition"
+              className="bg-white hover:bg-gray-100 text-gray-900 px-10 py-4 rounded-md text-lg font-semibold shadow-xl transition duration-300 ease-in-out"
             >
               Get a Free Quote
             </Link>
@@ -110,7 +110,7 @@ const HomePageHero = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default HomePageHero
+export default HomePageHero;
