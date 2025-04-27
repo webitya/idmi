@@ -37,7 +37,7 @@ const HomePageHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-tight"
+            className="text-4xl md:text-6xl lg:text-6xl font-extrabold text-white mb-6 leading-tight"
           >
             Transform Your Space With <br /> <span className="text-yellow-400">IDMITS DESIGNS</span>
           </motion.h1>

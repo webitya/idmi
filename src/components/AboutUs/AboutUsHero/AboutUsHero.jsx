@@ -4,10 +4,10 @@ import { motion } from "framer-motion";
 
 const AboutUsHero = () => {
   return (
-    <section className="py-32 mt-24 pb-32 bg-gradient-to-r from-[#2D3E50] to-[#1A2B37] relative overflow-hidden">
+    <section className="py-20 mt-24 pb-20 bg-gray-900 relative overflow-hidden">
       {/* Background Image */}
       <div
-        className="absolute inset-0 bg-cover bg-center opacity-25"
+        className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{
           backgroundImage: "url('/img1.webp')",
         }}
@@ -19,8 +19,8 @@ const AboutUsHero = () => {
           <motion.span
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="inline-block bg-[#00B2FF] text-white px-8 py-3 rounded-full text-sm font-semibold mb-6 tracking-wide uppercase shadow-lg"
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="inline-block bg-[#00B2FF] text-white px-5 py-2 rounded-full text-sm font-semibold mb-6 tracking-wide uppercase"
           >
             Our Story
           </motion.span>
@@ -28,8 +28,8 @@ const AboutUsHero = () => {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
-            className="text-5xl md:text-6xl font-extrabold text-white mb-8 leading-tight tracking-wider"
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="text-4xl md:text-5xl font-extrabold text-white mb-6 leading-tight"
           >
             About <span className="text-[#00B2FF]">IDMITS DESIGNS</span>
           </motion.h1>
@@ -37,11 +37,12 @@ const AboutUsHero = () => {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto"
+            transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto"
           >
             We are a premier interior design and construction company based in
-            Gurgaon, Haryana, committed to delivering top-tier residential and commercial spaces. With years of expertise, we blend innovation, craftsmanship, and style to transform your vision into reality.
+            Gurgaon, Haryana, dedicated to creating exceptional spaces that
+            inspire and delight.
           </motion.p>
         </div>
       </div>
