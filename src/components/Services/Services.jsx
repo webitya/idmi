@@ -1,16 +1,12 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import { HomeWork, Construction, Brush, Architecture, Apartment } from "@mui/icons-material"
-import Link from "next/link"
-import Image from "next/image"
+import { motion } from "framer-motion";
+import { useRef } from "react";
+import { HomeWork, Construction, Brush, Architecture, Apartment } from "@mui/icons-material";
+import Link from "next/link";
+import Image from "next/image";
 
 const Services = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
-
   const services = [
     {
       icon: <HomeWork className="text-4xl text-primary" />,
@@ -92,7 +88,7 @@ const Services = () => {
       image: "/img4.webp",
       link: "/services/consultation",
     },
-  ]
+  ];
 
   return (
     <div className="pt-20">
@@ -108,7 +104,8 @@ const Services = () => {
           <div className="text-center">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="inline-block bg-primary text-white px-4 py-1 rounded-full text-sm font-medium mb-4"
             >
@@ -116,7 +113,8 @@ const Services = () => {
             </motion.span>
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-4xl md:text-5xl font-bold text-white mb-6"
             >
@@ -124,27 +122,27 @@ const Services = () => {
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-gray-300 max-w-3xl mx-auto"
             >
-              We provide comprehensive design and construction services to transform your spaces into beautiful,
-              functional environments tailored to your unique needs and preferences. From concept to completion, our
-              expert team is here to bring your vision to life.
+              We provide comprehensive design and construction services to transform your spaces into beautiful, functional environments tailored to your unique needs and preferences.
             </motion.p>
           </div>
         </div>
       </section>
 
       {/* Services List */}
-      <section className="py-20" ref={ref}>
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-16">
             {services.map((service, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
                   index % 2 === 1 ? "md:flex-row-reverse" : ""
@@ -189,7 +187,8 @@ const Services = () => {
           <div className="text-center mb-16">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="text-primary font-semibold text-lg block mb-2"
             >
@@ -198,7 +197,8 @@ const Services = () => {
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="text-3xl md:text-4xl font-bold mb-6 dark:text-white"
             >
@@ -207,7 +207,8 @@ const Services = () => {
 
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 mb-12"
             >
@@ -216,107 +217,74 @@ const Services = () => {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
-            >
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                1
-              </div>
-              <h3 className="text-xl font-bold mb-3 dark:text-white">Consultation</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                We begin with an in-depth consultation to understand your vision, requirements, and budget.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
-            >
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                2
-              </div>
-              <h3 className="text-xl font-bold mb-3 dark:text-white">Design</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Our designers create detailed plans and 3D visualizations to bring your project to life.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
-            >
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                3
-              </div>
-              <h3 className="text-xl font-bold mb-3 dark:text-white">Execution</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                Our skilled team implements the design with precision, quality materials, and craftsmanship.
-              </p>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
-            >
-              <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
-                4
-              </div>
-              <h3 className="text-xl font-bold mb-3 dark:text-white">Delivery</h3>
-              <p className="text-gray-600 dark:text-gray-300">
-                We complete the project on time and ensure your complete satisfaction with the final result.
-              </p>
-            </motion.div>
+            {["Consultation", "Design", "Execution", "Delivery"].map((title, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: 0.1 * (idx + 1) }}
+                className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-lg text-center"
+              >
+                <div className="w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                  {idx + 1}
+                </div>
+                <h3 className="text-xl font-bold mb-3 dark:text-white">{title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">
+                  {title === "Consultation"
+                    ? "We begin with an in-depth consultation to understand your vision, requirements, and budget."
+                    : title === "Design"
+                    ? "Our designers create detailed plans and 3D visualizations to bring your project to life."
+                    : title === "Execution"
+                    ? "Our skilled team implements the design with precision, quality materials, and craftsmanship."
+                    : "We complete the project on time and ensure your complete satisfaction with the final result."}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-gray-800 via-gray-700 to-gray-600">
-  <div className="container mx-auto px-4">
-    <div className="max-w-3xl mx-auto text-center">
-      <motion.h2
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5 }}
-        className="text-4xl md:text-5xl font-bold mb-6 text-yellow-400"
-      >
-        Ready to Build Your Future?
-      </motion.h2>
-      <motion.p
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.1 }}
-        className="text-xl text-gray-300 mb-8"
-      >
-        Let's work together to create powerful spaces with strength, precision, and vision. Connect with our expert team today.
-      </motion.p>
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.5, delay: 0.2 }}
-      >
-        <Link
-          href="/contactus"
-          className="inline-block px-8 py-4 text-lg font-semibold text-white bg-yellow-500 hover:bg-yellow-600 rounded-md shadow-lg transition-all duration-300"
-        >
-          Contact Us
-        </Link>
-      </motion.div>
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-5xl font-bold mb-6 text-yellow-400"
+            >
+              Ready to Build Your Future?
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="text-xl text-gray-300 mb-8"
+            >
+              Let's work together to create powerful spaces with strength, precision, and vision. Connect with our expert team today.
+            </motion.p>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <Link
+                href="/contactus"
+                className="inline-block px-8 py-4 text-lg font-semibold text-white bg-yellow-500 hover:bg-yellow-600 rounded-md shadow-lg transition-all duration-300"
+              >
+                Contact Us
+              </Link>
+            </motion.div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
-</section>
+  );
+};
 
-    </div>
-  )
-}
-
-export default Services
+export default Services;

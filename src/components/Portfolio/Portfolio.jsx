@@ -1,14 +1,10 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef, useState } from "react"
+import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
 const Portfolio = () => {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
   const [activeFilter, setActiveFilter] = useState("all")
 
   const filters = [
@@ -118,35 +114,18 @@ const Portfolio = () => {
         />
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center">
-            <motion.h1
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl md:text-5xl font-bold text-white mb-6"
-            >
-              Our Portfolio
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xl text-gray-300 max-w-3xl mx-auto"
-            >
+            <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">Our Portfolio</h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
               Explore our collection of completed projects showcasing our expertise in design and construction.
-            </motion.p>
+            </p>
           </div>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section className="py-20" ref={ref}>
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-wrap justify-center gap-4 mb-12"
-          >
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
             {filters.map((filter) => (
               <button
                 key={filter.id}
@@ -160,15 +139,12 @@ const Portfolio = () => {
                 {filter.name}
               </button>
             ))}
-          </motion.div>
+          </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project, index) => (
-              <motion.div
+            {filteredProjects.map((project) => (
+              <div
                 key={project.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-lg"
               >
                 <div className="relative h-64">
@@ -192,7 +168,7 @@ const Portfolio = () => {
                     <span>Year: {project.year}</span>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
 
@@ -208,34 +184,20 @@ const Portfolio = () => {
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5 }}
-              className="text-3xl md:text-4xl font-bold mb-6 dark:text-white"
-            >
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">
               Ready to Create Your Dream Space?
-            </motion.h2>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-xl text-gray-600 dark:text-gray-300 mb-8"
-            >
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-8">
               Let's discuss how we can bring your vision to life with our expert design and construction services.
-            </motion.p>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-            >
+            </p>
+            <div>
               <Link
                 href="/contactus"
                 className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white px-8 py-3 rounded-full text-lg font-bold shadow-lg transition-all"
               >
                 Contact Us
               </Link>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
